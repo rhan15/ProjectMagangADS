@@ -1,22 +1,32 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
+        <div>
+            <h3 class="">SignUp</h3>
+        </div>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div>
+            
+
+            <div class="mt-4">
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-jet-label for="phone_number" value="{{ __('Phone Number') }}" />
+                <x-jet-input id="phone_number" class="block mt-1 w-full" type="text" name="phone_number" :value="old('phone_number')" required />
             </div>
 
             <div class="mt-4">
@@ -28,6 +38,13 @@
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
+
+            <div class="mt-4">
+                <x-jet-label for="refferal_code" value="{{ __('Refferal Code') }}" />
+                <x-jet-input id="refferal_code" class="block mt-1 w-full" type="text" name="refferal_code" />
+            </div>
+
+            
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
@@ -46,15 +63,17 @@
                 </div>
             @endif
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-jet-button class="ml-4">
-                    {{ __('Register') }}
+            <div class="flex items-center justify-center mt-4 ml-5 mr-5">
+                <x-jet-button class="btn btn-primary rounded-lg">
+                    {{ __('SignUp') }}
                 </x-jet-button>
             </div>
+            <div class="flex items-center justify-center mt-4">
+                Already have an account?
+                <a class="hover:underline px-1" href="{{ route('login') }}">
+                    {{ __('Login') }}
+                </a>
+        </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>

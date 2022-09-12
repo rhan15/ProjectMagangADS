@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GoogleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +41,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'
     })->name('dashboard');
 });
  
+Route::get('auth/google',[GoogleController::class,'redirectToGoogle'])->name('google.login');
+Route::get('auth/google/callback',[GoogleController::class,'handleGoogleCallback'])->name('google.callback');
