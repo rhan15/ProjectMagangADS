@@ -56,10 +56,9 @@
                 <div class="flex-lg-row">
                     <ul>____________________</ul>
                 </div>
-                
             </div>
 
-            <div class="flex items-center justify-center mt-4 flex-1 px-6 py-2 border border-gray-300
+            <div class="flex items-center justify-center mt-1 flex-1 px-6 py-2 border border-gray-300
             rounded-md font-bold text-md">
                     <a class="px-1 text-dark font-weight-bolder" href="{{ route('google.login') }}">
                         {{ __('Login with Google') }}
