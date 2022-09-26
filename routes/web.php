@@ -47,3 +47,7 @@ Route::get('auth/google/callback',[GoogleController::class,'handleGoogleCallback
 Route::get('/login-sosmed', function () {
     return view('auth/login-sosmed');
 });
+
+Route::get('/user-roles', function () {
+    return view('auth/user-roles');
+});

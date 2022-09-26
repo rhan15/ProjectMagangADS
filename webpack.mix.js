@@ -17,6 +17,24 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
     ]);
 
+    // mix.js('resources/js/app.js', 'public/js')
+    // .postCss('resources/scss/app.css', 'public/css', [
+    //     //
+    // ]);
+
+
+
+
 if (mix.inProduction()) {
     mix.version();
 }
+
+mix.scripts([ 
+    'public/asset/plugins/global/plugins.bundle.js', 
+    'public/asset/js/scripts.bundle.js', 
+    ], 'public/js/app-demo1.js');
+    
+    mix.styles([ 
+        'public/asset/plugins/global/plugins.bundle.css', 
+        'public/asset/css/style.bundle.css', 
+    ], 'public/css/app-demo1.css');
